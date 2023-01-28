@@ -1,0 +1,23 @@
+{
+  "name": "bug-tracker-backend",
+  "version": "1.0.0",
+  "description": "- a project by kenny, camilla, trace, jacob, and hunter. - in this application you will be able to track bugs and progress made on addressing the issues",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chjkt-bug-tracker/bug-tracker-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chjkt-bug-tracker/bug-tracker-backend/issues"
+  },
+  "homepage": "https://github.com/chjkt-bug-tracker/bug-tracker-backend#readme",
+  "dependencies": {
+    "eslint": "^8.32.0"
+  }
+}
