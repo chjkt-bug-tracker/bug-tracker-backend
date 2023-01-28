@@ -22,9 +22,13 @@ app.get('/', (request, response) => {
 });
 
 // route for catching all non-existing endpoints
-
 app.get('*', (request, response) => {
   response.status(404).send('Not available');
+});
+
+// error handler
+app.use((error, request, response, next)  => {
+  response.status(500).send(error.message);
 });
 
 module.exports = {
