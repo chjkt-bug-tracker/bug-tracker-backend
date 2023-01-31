@@ -1,5 +1,6 @@
 'use strict';
-const { users } = require('../models');
+
+const { users } = require('../models/userModel');
 
 async function handleSignup(req, res, next) {
   try {
@@ -47,7 +48,6 @@ async function handleGetSecret(req, res, next) {
     next(e);
   }
 }
-
 
 module.exports = {
   handleSignup,

@@ -1,5 +1,7 @@
 'use strict';
 
+const authRoutes = require('../src/auth/router');
+
 // required packages
 require('dotenv').config();
 const express = require('express');
@@ -29,6 +31,8 @@ app.use(express.urlencoded({ extended: true }));
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
 
+app.use(authRoutes);
+
 // route for proof-of-life
 app.get('/dashboard', (request, response) => {
   response.status(200).send('Dashboard proof!');
@@ -43,7 +47,6 @@ app.get('/teams', (request, response) => {
 });
 
 // route for catching all non-existing endpoints
-
 app.get('*', (request, response) => {
   response.status(404).send('Not available');
 });
@@ -54,6 +57,11 @@ app.get('/', (req, res) => {
   res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
 
+
+// error handler
+app.use((error, request, response, next)  => {
+  response.status(500).send(error.message);
+});
 
 module.exports = {
   server: app,
