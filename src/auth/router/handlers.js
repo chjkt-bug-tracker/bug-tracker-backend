@@ -1,6 +1,6 @@
 'use strict';
 
-const { users } = require('../models/userModel');
+const { users } = require('../models');
 
 async function handleSignup(req, res, next) {
   try {
