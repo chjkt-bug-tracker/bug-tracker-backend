@@ -39,7 +39,7 @@ const userModel = (sequelize, DataTypes) => {
         return acl[this.role];
       },
     },
-    assignedTeam: { type: DataTypes.ARRAY, required: false },
+    assignedTeam: { type: DataTypes.ARRAY(DataTypes.STRING), required: false },
   });
 
   model.beforeCreate(async (user) => {
@@ -64,6 +64,10 @@ const userModel = (sequelize, DataTypes) => {
       throw new Error(e.message);
     }
   };
+
+  sequelize.sync().then(() => {
+    console.log('Table created!');
+  });
 
   return model;
 };
