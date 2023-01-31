@@ -40,9 +40,18 @@ async function handleGetUsers(req, res, next) {
   }
 }
 
+async function handleGetSecret(req, res, next) {
+  try {
+    res.status(200).send('You are in the secret area');
+  } catch (e) {
+    console.error(e);
+    next(e);
+  }
+}
 
 module.exports = {
   handleSignup,
   handleSignin,
   handleGetUsers,
+  handleGetSecret,
 };
