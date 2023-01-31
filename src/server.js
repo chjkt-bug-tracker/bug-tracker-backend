@@ -1,5 +1,7 @@
 'use strict';
 
+const authRoutes = require('../src/auth/router');
+
 // required packages
 require('dotenv').config();
 const express = require('express');
@@ -28,6 +30,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
+
+app.use(authRoutes);
 
 // route for proof-of-life
 app.get('/dashboard', (request, response) => {
