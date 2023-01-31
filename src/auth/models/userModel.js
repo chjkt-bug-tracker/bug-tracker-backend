@@ -24,7 +24,6 @@ const userModel = (sequelize, DataTypes) => {
     token: {
       type: DataTypes.VIRTUAL,
       get() {
-        console.log(SECRET);
         return jwt.sign({ username: this.username }, SECRET);
       },
     },
@@ -64,10 +63,6 @@ const userModel = (sequelize, DataTypes) => {
       throw new Error(e.message);
     }
   };
-
-  sequelize.sync().then(() => {
-    console.log('Table created!');
-  });
 
   return model;
 };

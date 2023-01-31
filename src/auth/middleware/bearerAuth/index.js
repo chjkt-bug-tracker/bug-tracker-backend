@@ -7,6 +7,7 @@ module.exports = async (req, res, next) => {
 
     if (!req.headers.authorization) { next('Invalid Login');}
 
+    console.log('testing in bearer hello hello');
     const token = req.headers.authorization.split(' ').pop();
     const validUser = await users.authenticateWithToken(token);
 

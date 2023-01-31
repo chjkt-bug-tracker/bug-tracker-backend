@@ -1,12 +1,16 @@
 'use strict';
 
-const authRoutes = require('../src/auth/router');
 
 // required packages
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 // const port = process.env.PORT || 3002;
+
+// importing the routes
+
+const v2Routes = require('./routes/v2');
+const authRoutes = require('../src/auth/router');
 
 // setting up Express
 const app = express();
@@ -31,6 +35,7 @@ app.use(express.urlencoded({ extended: true }));
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
 
+app.use('/api/v2',  v2Routes);
 app.use(authRoutes);
 
 // route for proof-of-life
@@ -38,9 +43,9 @@ app.get('/dashboard', (request, response) => {
   response.status(200).send('Dashboard proof!');
 });
 
-app.get('/tickets', (request, response) => {
-  response.status(200).send('Ticket proof!');
-});
+// app.get('/tickets', (request, response) => {
+//   response.status(200).send('Ticket proof!');
+// });
 
 app.get('/teams', (request, response) => {
   response.status(200).send('Teams proof!');

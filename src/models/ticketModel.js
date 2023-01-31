@@ -1,9 +1,9 @@
 'use strict';
 
 
-const ticketModel = (sequelize, DataTypes) => sequelize.define( 'Tickets', {
+const ticketModel = (sequelize, DataTypes) => sequelize.define('tickets', {
   shared: { type: DataTypes.BOOLEAN, required: true },
-  sharedWith: { type: DataTypes.ARRAY, required: true},
+  sharedWith: { type: DataTypes.ARRAY(DataTypes.STRING), required: true},
   issueType: { type: DataTypes.STRING, required: true},
   reporter: { type: DataTypes.STRING, required: true },
   whenCreated: { type: DataTypes.STRING, required: true },
