@@ -17,9 +17,9 @@ const userModel = (sequelize, DataTypes) => {
       required: true,
     },
     role: {
-      type: DataTypes.ENUM('admin', 'manager', 'team member'),
+      type: DataTypes.ENUM('admin', 'manager', 'teamMember'),
       required: true,
-      defaultValue: 'team member',
+      defaultValue: 'teamMember',
     },
     token: {
       type: DataTypes.VIRTUAL,
@@ -31,7 +31,7 @@ const userModel = (sequelize, DataTypes) => {
       type: DataTypes.VIRTUAL,
       get() {
         const acl = {
-          'team member': ['read', 'create', 'update', 'delete'],
+          teamMember: ['read', 'create', 'update', 'delete'],
           manager: ['read', 'create', 'update', 'delete'],
           admin: ['read', 'create', 'update', 'delete'],
         };
