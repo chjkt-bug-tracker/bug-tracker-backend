@@ -11,21 +11,21 @@ let teamMember;
 
 beforeAll(async () => {
   await db.sync();
-  admin = await users.create({
-    username: 'ADMIN',
-    password: 'pass',
-    role: 'admin',
-  });
-  manager = await users.create({
-    username: 'MANAGER',
-    password: 'pass',
-    role: 'manager',
-  });
-  teamMember = await users.create({
-    username: 'TEAMMEMBER',
-    password: 'pass',
-    role: 'teamMember',
-  });
+  // admin = await users.create({
+  //   username: 'ADMIN',
+  //   password: 'pass',
+  //   role: 'admin',
+  // });
+  // manager = await users.create({
+  //   username: 'MANAGER',
+  //   password: 'pass',
+  //   role: 'manager',
+  // });
+  // teamMember = await users.create({
+  //   username: 'TEAMMEMBER',
+  //   password: 'pass',
+  //   role: 'teamMember',
+  // });
 });
 
 afterAll(async () => {
