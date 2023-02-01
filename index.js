@@ -5,7 +5,7 @@ const app = require('./src/server.js');
 const { db } = require('./src/models');
 
 // starts the Express server on localhost
-db.sync().then(() => {
+db.sync( { force: true }).then(() => {
   console.log('successful connection');
   app.start(process.env.PORT || 3002);
 });

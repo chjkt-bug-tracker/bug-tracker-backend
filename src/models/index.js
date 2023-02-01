@@ -1,6 +1,7 @@
 'use strict';
 
 const { Sequelize, DataTypes } = require('sequelize');
+const userModel = require('../auth/models/userModel');
 const ticketModel = require('./ticketModel');
 const Collection = require('./data-collection.js');
 
@@ -18,11 +19,14 @@ const sequelize = new Sequelize(DATABASE_URL, {
   },
 });
 
-const ticket = ticketModel(sequelize, DataTypes);
+const tickets = ticketModel(sequelize, DataTypes);
+const users = userModel(sequelize, DataTypes);
+
 
 module.exports = {
   db: sequelize,
-  ticket: new Collection(ticket),
+  tickets: new Collection(tickets),
+  users,
 };
 
 
