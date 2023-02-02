@@ -10,7 +10,6 @@ module.exports = async (req, res, next) => {
     console.log('testing in bearer hello hello');
     const token = req.headers.authorization.split(' ').pop();
     const validUser = await users.authenticateToken(token);
-
     req.user = validUser;
     req.token = validUser.token;
     next();

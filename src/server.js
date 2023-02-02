@@ -35,7 +35,7 @@ app.use(express.urlencoded({ extended: true }));
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 // app.use(auth(config));
 
-app.use('/api/v2',  v2Routes);
+app.use('/api/',  v2Routes);
 app.use(authRoutes);
 
 // route for proof-of-life

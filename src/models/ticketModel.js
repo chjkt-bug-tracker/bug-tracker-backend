@@ -1,6 +1,5 @@
 'use strict';
 
-
 const ticketModel = (sequelize, DataTypes) => sequelize.define('Ticket', {
   // shared: { type: DataTypes.BOOLEAN, required: true },
   // sharedWith: { type: DataTypes.ARRAY(DataTypes.STRING), required: true},
