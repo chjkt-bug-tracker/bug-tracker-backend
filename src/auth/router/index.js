@@ -15,7 +15,7 @@ const {
 
 authRouter.post('/signup', handleSignup);
 authRouter.post('/signin', basicAuth, handleSignin);
-authRouter.get('/users', bearerAuth, aclPermissions('delete'), handleGetUsers);
-authRouter.get('/secret', bearerAuth, handleGetSecret);
+authRouter.get('/users', handleGetUsers);
+authRouter.get('/secret', handleGetSecret);
 
 module.exports = authRouter;
