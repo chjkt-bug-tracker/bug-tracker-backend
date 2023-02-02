@@ -7,7 +7,7 @@ const Collection = require('./data-collection.js');
 
 const DATABASE_URL = process.env.DATABASE_URL;
 
-const seq uelize = new Sequelize(DATABASE_URL, {
+const sequelize = new Sequelize(DATABASE_URL, {
   dialect: 'postgres',
   protocol: 'postgres',
   dialectOptions: {
