@@ -12,21 +12,25 @@ const userModel = (sequelize, DataTypes) => {
       required: true,
       unique: true,
     },
+    
     password: {
       type: DataTypes.STRING,
       required: true,
     },
+    
     role: {
       type: DataTypes.ENUM('admin', 'manager', 'team member'),
       required: true,
       defaultValue: 'team member',
     },
+    
     token: {
       type: DataTypes.VIRTUAL,
       get() {
         return jwt.sign({ username: this.username }, SECRET);
       },
     },
+    
     capabilities: {
       type: DataTypes.VIRTUAL,
       get() {
@@ -38,6 +42,7 @@ const userModel = (sequelize, DataTypes) => {
         return acl[this.role];
       },
     },
+    
     assignedTeam: { type: DataTypes.ARRAY(DataTypes.STRING), required: false },
   });
 

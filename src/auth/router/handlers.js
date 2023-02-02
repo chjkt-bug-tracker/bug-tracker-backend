@@ -4,7 +4,6 @@ const { users } = require('../../models');
 
 async function handleSignup(req, res, next) {
   try {
-    console.log('user:', users);
     let userRecord = await users.create(req.body);
     const output = {
       user: userRecord,
