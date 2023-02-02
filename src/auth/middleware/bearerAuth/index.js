@@ -1,6 +1,6 @@
 'use strict';
 
-const { users } = require('../../models/userModel');
+const { users } = require('../../../models');
 
 module.exports = async (req, res, next) => {
   try {
@@ -9,8 +9,8 @@ module.exports = async (req, res, next) => {
 
     console.log('testing in bearer hello hello');
     const token = req.headers.authorization.split(' ').pop();
-    const validUser = await users.authenticateWithToken(token);
-
+    const validUser = await users.authenticateToken(token);
+    console.log('VALID USER HERE', validUser);
     req.user = validUser;
     req.token = validUser.token;
     next();
