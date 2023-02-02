@@ -1,7 +1,6 @@
 'use strict';
 
 const express = require('express');
-const { users } = require('../models/userModel');
 const authRouter = express.Router();
 const aclPermissions = require('../middleware/acl');
 

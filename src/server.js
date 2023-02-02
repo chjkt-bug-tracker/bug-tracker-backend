@@ -51,17 +51,16 @@ app.get('/teams', (request, response) => {
   response.status(200).send('Teams proof!');
 });
 
+// req.isAuthenticated is provided from the auth router
+app.get('/', (request, response) => {
+  response.status(200).send('HELLLLLLO world~');
+  // res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+});
+
 // route for catching all non-existing endpoints
 app.get('*', (request, response) => {
   response.status(404).send('Not available');
 });
-
-
-// req.isAuthenticated is provided from the auth router
-app.get('/', (req, res) => {
-  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
-});
-
 
 // error handler
 app.use((error, request, response, next)  => {
