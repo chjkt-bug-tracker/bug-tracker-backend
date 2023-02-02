@@ -1,11 +1,13 @@
 'use strict';
 
+require('dotenv').config();
 const { Sequelize, DataTypes } = require('sequelize');
 const userModel = require('../auth/models/userModel');
 const ticketModel = require('./ticketModel');
+const userModel = require('../auth/models/userModel');
 const Collection = require('./data-collection.js');
 
-const DATABASE_URL = process.env.DATABASE_URL;
+const DATABASE_URL = process.env.NODE_ENV === 'test' ? 'sqlite:memory' : process.env.DATABASE_URL;
 
 const seq uelize = new Sequelize(DATABASE_URL, {
   dialect: 'postgres',

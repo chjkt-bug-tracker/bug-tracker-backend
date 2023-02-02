@@ -2,6 +2,7 @@
 
 const { users } = require('../../models');
 
+
 async function handleSignup(req, res, next) {
   try {
     let userRecord = await users.create(req.body);

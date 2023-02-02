@@ -4,7 +4,10 @@
   "description": "- a project by kenny, camilla, trace, jacob, and hunter. - in this application you will be able to track bugs and progress made on addressing the issues",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test jest --verbose --coverage",
+    "db:config": "sequelize init:config",
+    "db:create": "sequelize db:create",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
