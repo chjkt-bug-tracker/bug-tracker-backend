@@ -60,20 +60,19 @@ const userModel = (sequelize, DataTypes) => {
   model.beforeCreate(async (user) => {
     let hashPass = await bcrypt.hash(user.password, 10);
     user.password = hashPass;
+    console.log('in before create', user);
   });
 
   model.authenticateBasic = async function (username, password) {
     const user = await this.findOne({ where: { username } });
-    const valid = await bcrypt.compare(password, user.password);
+    const valid = bcrypt.compare(password, user.password);
     if (valid) { return user; }
     throw new Error('Invalid User');
   };
 
   model.authenticateToken = async function (token) {
     try {
-      console.log('TOKEN', token);
       const parsedToken = jwt.verify(token, SECRET);
-      console.log('PARSED TOKEN HERE', parsedToken);
       const user = this.findOne({ where: { username: parsedToken.username } });
       if (user) { return user; }
       throw new Error('User Not Found');
