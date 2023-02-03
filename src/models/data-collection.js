@@ -19,6 +19,10 @@ class DataCollection {
     return this.model.create(record);
   }
 
+  bulkCreate(data){
+    return this.model.bulkCreate(data);
+  }
+
   update(id, data) {
     return this.model.findOne({ where: { id } })
       .then(record => record.update(data));
