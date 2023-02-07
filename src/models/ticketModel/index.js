@@ -5,6 +5,7 @@ const ticketModel = (sequelize, DataTypes) => sequelize.define('Ticket', {
   // sharedWith: { type: DataTypes.ARRAY(DataTypes.STRING), required: true},
   teamMember: { type: DataTypes.STRING, required: true },
   issueType: { type: DataTypes.STRING, required: true},
+  isResolved: { type: DataTypes.BOOLEAN, required: true },
   // whenCreated: { type: DataTypes.STRING, required: true },
   // whenResolved: { type: DataTypes.STRING, required: true },
   notes: { type: DataTypes.STRING, required: true },
