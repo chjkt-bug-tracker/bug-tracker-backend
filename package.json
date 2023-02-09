@@ -7,7 +7,8 @@
     "test": "NODE_ENV=test jest --verbose --coverage",
     "db:config": "sequelize init:config",
     "db:create": "sequelize db:create",
-    "start": "node index.js"
+    "start": "node index.js",
+    "seed": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -33,7 +34,6 @@
     "nodemon": "^2.0.20",
     "pg": "^8.9.0",
     "sequelize": "^6.28.0",
-    "sequelize-cli": "^6.6.0",
     "sqlite3": "^5.1.4",
     "supertest": "^6.3.3"
   }
